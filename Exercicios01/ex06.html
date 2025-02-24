@@ -1,0 +1,26 @@
+<script>
+    //Solicite ao usuário para digitar 5 notas e adicione cada nota no array Notas. Calcule a média do aluno. 
+    //Exiba se o aluno foi aprovado (nota ≥ 7) ou se o aluno foi reprovado (nota < 7). Use forEach.
+
+    let notas = [];
+    let contador = 0;
+    let limite = 5;
+
+    while(contador != limite) {
+        notas.push(Number(prompt('Digite uma nota: ')));
+        contador++;
+        }
+
+        notas.forEach(function(media){
+            media = (notas[0] + notas[1] + notas[2] + notas[3] + notas[4]) / 5;
+            console.log('Média: ' + media);
+        });
+
+        media = (notas[0] + notas[1] + notas[2] + notas[3] + notas[4]) / 5;
+        if (media >= 7) {
+            console.log('Aprovado.');
+        }else{
+            console.log('Reprovado.');
+        }
+
+</script>

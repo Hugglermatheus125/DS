@@ -1,0 +1,18 @@
+<script>
+    //Solicite ao usuário para digitar 5 números inteiros, guarde os valores em um array chamado Somatoria. 
+    //Implemente o forEachpara somar todos os valores e exibir no console.
+
+    let numeros = [];
+    let contador = 0;
+    let limite = 5;
+
+    while(contador != limite) {
+        numeros.push(Number(prompt('Digite um número:')));
+        contador++;
+        }
+
+        numeros.forEach(function(somatoria){
+            console.log('Número selecionado: ' + numeros)
+        });
+        console.log(numeros[0] + numeros[1] + numeros[2] + numeros[3] + numeros[4]);
+        </script>

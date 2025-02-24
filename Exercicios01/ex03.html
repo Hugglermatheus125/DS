@@ -1,0 +1,20 @@
+<script>
+    //Solicite ao usuário para digitar 5 tarefas e 
+    //guarde cada tarefa no array Tarefas. Use forEach para exibir cada tarefa no console.
+
+    let tarefas = [];
+    let continuar = 'sim';
+
+    while(continuar == 'sim') {
+        tarefas.push(prompt('Digite uma tarefa a sua lista:'))
+        continuar = prompt('Deseja adicionar mais alguma tarefa? sim/não');
+
+    }
+
+    console.log('Lista de tarefas: ')
+
+    tarefas.forEach(function(listtarefas) {
+        console.log(listtarefas);
+    });
+
+</script>
