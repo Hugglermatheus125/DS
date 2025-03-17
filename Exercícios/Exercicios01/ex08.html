@@ -3,4 +3,17 @@
     //salve os produtos no array Produtos. 
     //Pergunte ao usuário se deseja adicionar mais um produto a lista. 
     //Use `forEach`para exibir todos os produtos cadastrados.
+
+    let produtos = [];
+    let continuar = 'sim';
+
+    while (continuar == 'sim') {
+        produtos.push(prompt('Digite o nome do produto: '));
+        continuar = prompt('Deseja adicionar mais um produto na lista?');
+    }
+
+    produtos.forEach(
+        function(item){
+            console.log(item);
+        } );
 </script>
