@@ -1,0 +1,42 @@
+<script>
+
+    let lampada = 'Apagada'
+
+    verificarOndeEstou('cadeira');
+    pressionarInterruptor();
+    verificarSeLampadaAscendeu();
+
+    function verificarOndeEstou(local){
+        if (local == 'cadeira')
+            levantar();
+
+        if (local == 'em pé')
+            caminharAteLampada();
+            
+        if (local == 'deitado')
+            levantar();
+    };
+
+    function levantar(){
+        console.log('Você levantou!');
+        caminharAteLampada();
+    };
+
+    function caminharAteLampada(){
+        console.log('Caminhando até a lâmpada');
+    };
+
+    function pressionarInterruptor(){
+        console.log('Interruptor pressionado');
+        lampada = 'Acesa';
+    };
+
+    function verificarSeLampadaAscendeu(){
+        if (lampada == 'acendeu') {
+            console.log('A lâmpada está acesa!');
+        } else {
+            console.log('A lâmpada está queimada');
+        }
+    };
+
+</script>

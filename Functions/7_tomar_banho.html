@@ -1,0 +1,44 @@
+<script>
+
+    let banho_tomado = false;
+    let roupas_tiradas = true;
+
+    irAoBanheiro();
+    tirarAsRoupas();
+    ligarOChuveiro();
+    tomarBanho();
+    secarComToalha();
+    vestirTroca();
+    sairDoBanheiro();
+
+    function irAoBanheiro(){
+        console.log('Você foi até o banheiro!');
+    }
+
+    function tirarAsRoupas(tirarasroupas){
+        if (roupas_tiradas == true)
+        console.log('Você tirou suas roupas.');
+        if (roupas_tiradas == false)
+        console.log('Você esqueceu de tirar suas roupas.');
+    }
+
+    function ligarOChuveiro(){
+        console.log('Você ligou o chuveiro!')
+    }
+
+    function tomarBanho(){
+        if (roupas_tiradas == true && banho_tomado == true)
+        console.log('Você tomou OUTRO banho!');
+        if (roupas_tiradas == true && banho_tomado == false)
+        console.log('Você tomou seu banho!');
+        if (roupas_tiradas == false && banho_tomado == false)
+        console.log('Você tomou BANHO DE ROUPA!');
+        if (roupas_tiradas == false && banho_tomado == true)
+        console.log('Você tomou OUTRO banho DE ROUPA!');
+    }
+
+    function secarComToalha(){
+
+    }
+
+</script>
