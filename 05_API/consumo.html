@@ -66,13 +66,13 @@
 
                     let fronteiras = document.createElement('p');
                     fronteiras.innerText = country.borders;
-                    fronteiras.style.wordBreak = 'break-all'
+                    fronteiras.style.wordBreak = 'break-all';
 
                     let independencia = document.createElement('p');
                     if (country.independent == true) {
                         independencia.innerText = 'País Independente';
                     }else{
-                        independencia.innerText = 'País Pau Mandado';
+                        independencia.innerText = 'País Dependente';
                     };
                     
 
@@ -83,6 +83,15 @@
                     bandeiramilitar.setAttribute('src', country.coatOfArms.svg);
                     bandeiramilitar.style.width = '100%';
                     bandeiramilitar.style.borderRadius = '10px';
+
+                    let linguagem = document.createElement('p');
+                    linguagem.innerText = Object.keys(country.languages);
+
+                    let moeda = document.createElement('p');
+                    moeda.innerText = Object.keys(country.currencies);
+
+                    let status = document.createElement('p');
+                    status.innerText = fdfd;
 
 
                     let col = document.createElement('div');
@@ -100,6 +109,8 @@
                     col.appendChild(fronteiras);
                     col.appendChild(independencia);
                     col.appendChild(fusohorario);
+                    col.appendChild(linguagem);
+                    col.appendChild(moeda);
                     col.appendChild(bandeiramilitar);
                     countries_list.appendChild(col);
                     
@@ -113,7 +124,7 @@
             .finally(() => {
                 console.log('Requisição Finalizada!');
             })
-        }
+        };
 
     </script>
 
