@@ -72,8 +72,11 @@
             combustivel.innerText = ('Tipo de combustivel: ' + veiculo.combustivel);
 
             veiculo.fotos.forEach(foto => {
-                let imagem = document.createElement;
-            })
+                let imagem = document.createElement('img');
+                imagem.setAttribute('src', foto);
+                card.appendChild(imagem);
+            });
+
 
             //==========================================
 
