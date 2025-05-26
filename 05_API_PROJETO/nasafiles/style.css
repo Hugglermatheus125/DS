@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(41, 40, 40);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    margin: 70px;
+}
+
+.nav{
+    background-color: rgb(99, 93, 93)
+}
