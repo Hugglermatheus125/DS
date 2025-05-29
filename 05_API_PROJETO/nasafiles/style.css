@@ -1,16 +1,29 @@
 body{
-    background-color: rgb(41, 40, 40);
+    background-color: #F2DCB3;
 }
 
 main{
+justify-content: center;
+}
+
+.card{
+    border: 2px rgb(41, 41, 41) solid;
+    background-color: rgb(175, 175, 175);
+    margin: 70px;
+    color: rgb(29, 29, 29);
+}
+
+.bg-custom{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #D93B3B;
+}
+
+.cards{
     display: flex;
     justify-content: center;
 }
 
-.card{
-    margin: 70px;
-}
-
-.nav{
-    background-color: rgb(99, 93, 93)
+header{
+    font-family: "Rock Salt", cursive;
 }
