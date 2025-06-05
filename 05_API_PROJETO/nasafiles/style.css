@@ -1,5 +1,5 @@
 body{
-    background-color: #F2DCB3;
+    background-color: #1355be;
 }
 
 main{
@@ -16,7 +16,7 @@ justify-content: center;
 .bg-custom{
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #D93B3B;
+    background-color: #0C2E64;
 }
 
 .cards{
@@ -25,5 +25,13 @@ justify-content: center;
 }
 
 header{
-    font-family: "Rock Salt", cursive;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
+}
+.titulo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    display: flex;
+    justify-content: center;
+    flex-wrap: ;
 }
