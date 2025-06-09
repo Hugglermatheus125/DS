@@ -3,7 +3,10 @@ body{
 }
 
 main{
-justify-content: center;
+    justify-content: center;
+    background-image: url(IMAGENS/ChatGPT\ Image\ 9\ de\ jun.\ de\ 2025\,\ 14_42_26.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .card{
@@ -14,24 +17,38 @@ justify-content: center;
 }
 
 .bg-custom{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #0C2E64;
+    background-color: #01060f;
 }
 
-.cards{
-    display: flex;
-    justify-content: center;
-}
 
 header{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: oblique;
+ 
 }
+
+form{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .titulo{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: oblique;
+    color: white;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+.texto{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+.headermain{
     display: flex;
-    justify-content: center;
-    flex-wrap: ;
+
+}
+
+a.nav-link{
+    color: white;
 }
