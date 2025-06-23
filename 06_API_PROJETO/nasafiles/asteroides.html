@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NASAFILES</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-custom">
+            <div class="container-fluid">
+                <img src="imagens/3441000_astronomy_planet_rings_saturn_science_icon.png" width="50px"
+                    style="margin-right: 5px;">
+                <a class="navbar-brand" href="index.html" style="color: white;"><strong>NASAFILES</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><strong>Link</strong></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <strong>Suporte</strong>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="#">Ajuda</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Faça uma sugestão</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="titulo">
+            <h1><strong>NASAFILES</strong></h1>
+            <h2>Asteroides próximos!</h2>
+        </div>
+
+         <script>
+        function fetchNEOs() {
+            let container = document.querySelector('#nasa-container');
+            fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=L0OElV1qVe98loQk5rOiVME8pUYVrmzYedoZZznC')
+                .then(resp => resp.json())
+                .then(data => {
+                    const neoList = document.getElementById('neo-list');
+                    const objetos = data.near_earth_objects;
+                    
+                    if (!objetos) {
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('error').style.display = 'block';
+                        return;
+                    }
+                    
+                  
+                    for (let date in objetos) {
+                        objetos[date].forEach(neo => {
+                            const neoDiv = document.createElement('div');
+                            neoDiv.classList.add('neo-item');
+
+                            const nome = neo.name || 'Desconhecido';
+                            const diametro = neo.estimated_diameter.meters.estimated_diameter_max.toFixed(2);
+                            const velocidade = neo.relative_velocity.kilometers_per_second;
+                            const distancia = neo.close_approach_data[0].miss_distance.kilometers;
+                            const dataAproximacao = neo.close_approach_data[0].close_approach_date;
+
+                            neoDiv.innerHTML = `
+                                <p><strong>Nome:</strong> ${nome}</p>
+                                <p><strong>Diâmetro:</strong> ${diametro} metros</p>
+                                <p><strong>Velocidade:</strong> ${velocidade} km/s</p>
+                                <p><strong>Distância mínima:</strong> ${distancia} km</p>
+                                <p><strong>Data de aproximação:</strong> ${dataAproximacao}</p>
+                            `;
+                            
+                            neoList.appendChild(neoDiv);
+                        });
+                    }
+                    
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('content').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados da NASA: ', error);
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('error').style.display = 'block';
+                });
+        }
+
+        fetchNEOs();
+    </script>
+
+        
+    </main>
+
+<!-- Linha separada acima do footer -->
+<div class="d-flex justify-content-center">
+    <div style="border-top: 2px solid #1355be; width: 80%;"></div>
+</div>
+
+<footer class="py-3 my-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1" aria-label="Bootstrap">
+                <svg class="bi" width="30" height="24" aria-hidden="true">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <span class="mb-3 mb-md-0" style="color: #1355be;">© 2025 NASAFILES, Inc</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a href="https://www.instagram.com/caua_nanis?igsh=MTUyanYwZ2k5cG9sbw==" aria-label="Instagram">
+                    <img src="imagens/Instagram_icon.png.webp" alt="Instagram" style="width: 30px;">
+                </a>
+            </li>
+            <li class="ms-3">
+                <a href="https://www.facebook.com/NASA/" aria-label="Facebook">
+                    <img src="imagens/Facebook_f_logo_(2019).svg.png" alt="Facebook" style="width: 30px;">
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
