@@ -60,50 +60,61 @@
             <h2>Imagem do dia!</h2>
         </div>
 
+        <div id="nasa-container">
+            <div id="loading" class="loading">Carregando...</div>
+            <div id="content" style="display: none;">
+                <h2 id="title"></h2>
+                <div class="date" id="date"></div>
+                <div id="media"></div>
+                <p id="explanation"></p>
+            </div>
+            <div id="error" class="error" style="display: none;"></div>
+        </div>
+    
         <script>
-        function fetchAPOD(){
-            let container = document.querySelector('#nasa-container');
-            fetch('https://api.nasa.gov/planetary/apod?api_key=L0OElV1qVe98loQk5rOiVME8pUYVrmzYedoZZznC')
-            .then(resp => resp.json())
-            .then(data => {
-                let title = document.createElement('h2');
-                title.innerText = data.title;
-
-                let description = document.createElement('p');
-                description.innerText = data.explanation;
-
-                if(data.media_type === 'image'){
-                    let image = document.createElement('img');
-                    image.setAttribute('src', data.url);
-                    image.setAttribute('id', 'nasa-image'); 
-                    container.appendChild(image);
-                } else if(data.media_type === 'video'){
-                    let video = document.createElement('iframe');
-                    video.setAttribute('src', data.url);
-                    video.setAttribute('frameborder', 0);
-                    video.setAttribute('allowfullscreen', '');
-                    video.setAttribute('id', 'nasa-video'); 
-                    container.appendChild(video);
-                }
-
-                let content = document.getElementById('content');
-                content.style.display = 'block'; 
-                document.getElementById('loading').style.display = 'none'; 
-                container.appendChild(title);
-                container.appendChild(description);
-            })
-
-            .catch(error => {
-                console.error('Erro ao buscar dados da Nasa: ', error);
-                container.innerHTML += '<p>Não foi possível carregar a imagem do dia. Tente novamente mais tarde.</p>';
-            });
-        }
-
-        fetchAPOD();
-
-
-        
-    </script>
+            function fetchAPOD(){
+                let container = document.querySelector('#nasa-container');
+                fetch('https://api.nasa.gov/planetary/apod?api_key=ZOdBcsiKYAOa0Eb0wCBgKEejcj4bVmh34IoD46zg')
+                .then(resp => resp.json())
+                .then(data => {
+                    let title = document.createElement('h2');
+                    title.innerText = data.title;
+    
+                    let description = document.createElement('p');
+                    description.innerText = data.explanation;
+    
+                    if(data.media_type === 'image'){
+                        let image = document.createElement('img');
+                        image.setAttribute('src', data.url);
+                        image.setAttribute('id', 'nasa-image'); 
+                        container.appendChild(image);
+                    } else if(data.media_type === 'video'){
+                        let video = document.createElement('iframe');
+                        video.setAttribute('src', data.url);
+                        video.setAttribute('frameborder', 0);
+                        video.setAttribute('allowfullscreen', '');
+                        video.setAttribute('id', 'nasa-video'); 
+                        container.appendChild(video);
+                    }
+    
+                    let content = document.getElementById('content');
+                    content.style.display = 'block'; 
+                    document.getElementById('loading').style.display = 'none'; 
+                    container.appendChild(title);
+                    container.appendChild(description);
+                })
+    
+                .catch(error => {
+                    console.error('Erro ao buscar dados da Nasa: ', error);
+                    container.innerHTML += '<p>Não foi possível carregar a imagem do dia. Tente novamente mais tarde.</p>';
+                });
+            }
+    
+            fetchAPOD();
+    
+    
+            
+        </script>
 
         
     </main>

@@ -60,57 +60,78 @@
             <h2>Asteroides próximos!</h2>
         </div>
 
-         <script>
-        function fetchNEOs() {
-            let container = document.querySelector('#nasa-container');
-            fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=L0OElV1qVe98loQk5rOiVME8pUYVrmzYedoZZznC')
-                .then(resp => resp.json())
-                .then(data => {
-                    const neoList = document.getElementById('neo-list');
-                    const objetos = data.near_earth_objects;
-                    
-                    if (!objetos) {
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <li class="nav-item"><a class="nav-link" href="Planetarium.html">Início</a></li>
+            </li>
+            <li class="nav-item">
+            <li class="nav-item"><a class="nav-link" href="fotomarte.html">Foto de Marte</a></li>
+            </li>
+            <li class="nav-item">
+                <li class="nav-item"><a class="nav-link" href="imagensterra.html">Imagens da terra</a></li>
+            </li>
+          </ul>
+        <h1 style="font-size: xx-large; font-family: Arial, Helvetica, sans-serif; justify-content: center; color: #000000; text-align: center;">Objetos Próximos à Terra</h1>
+        
+        <div id="nasa-container">
+            <div id="loading" class="loading">Carregando dados...</div>
+            <div id="content" style="display: none;">
+                <div id="neo-list"></div>
+            </div>
+            <div id="error" class="error" style="display: none;">Erro ao carregar os dados. Tente novamente mais tarde.</div>
+        </div>
+    
+        <script>
+            function fetchNEOs() {
+                let container = document.querySelector('#nasa-container');
+                fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=ZOdBcsiKYAOa0Eb0wCBgKEejcj4bVmh34IoD46zg')
+                    .then(resp => resp.json())
+                    .then(data => {
+                        const neoList = document.getElementById('neo-list');
+                        const objetos = data.near_earth_objects;
+                        
+                        if (!objetos) {
+                            document.getElementById('loading').style.display = 'none';
+                            document.getElementById('error').style.display = 'block';
+                            return;
+                        }
+                        
+                      
+                        for (let date in objetos) {
+                            objetos[date].forEach(neo => {
+                                const neoDiv = document.createElement('div');
+                                neoDiv.classList.add('neo-item');
+    
+                                const nome = neo.name || 'Desconhecido';
+                                const diametro = neo.estimated_diameter.meters.estimated_diameter_max.toFixed(2);
+                                const velocidade = neo.relative_velocity.kilometers_per_second;
+                                const distancia = neo.close_approach_data[0].miss_distance.kilometers;
+                                const dataAproximacao = neo.close_approach_data[0].close_approach_date;
+    
+                                neoDiv.innerHTML = `
+                                    <p><strong>Nome:</strong> ${nome}</p>
+                                    <p><strong>Diâmetro:</strong> ${diametro} metros</p>
+                                    <p><strong>Velocidade:</strong> ${velocidade} km/s</p>
+                                    <p><strong>Distância mínima:</strong> ${distancia} km</p>
+                                    <p><strong>Data de aproximação:</strong> ${dataAproximacao}</p>
+                                `;
+                                
+                                neoList.appendChild(neoDiv);
+                            });
+                        }
+                        
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('content').style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Erro ao buscar dados da NASA: ', error);
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('error').style.display = 'block';
-                        return;
-                    }
-                    
-                  
-                    for (let date in objetos) {
-                        objetos[date].forEach(neo => {
-                            const neoDiv = document.createElement('div');
-                            neoDiv.classList.add('neo-item');
-
-                            const nome = neo.name || 'Desconhecido';
-                            const diametro = neo.estimated_diameter.meters.estimated_diameter_max.toFixed(2);
-                            const velocidade = neo.relative_velocity.kilometers_per_second;
-                            const distancia = neo.close_approach_data[0].miss_distance.kilometers;
-                            const dataAproximacao = neo.close_approach_data[0].close_approach_date;
-
-                            neoDiv.innerHTML = `
-                                <p><strong>Nome:</strong> ${nome}</p>
-                                <p><strong>Diâmetro:</strong> ${diametro} metros</p>
-                                <p><strong>Velocidade:</strong> ${velocidade} km/s</p>
-                                <p><strong>Distância mínima:</strong> ${distancia} km</p>
-                                <p><strong>Data de aproximação:</strong> ${dataAproximacao}</p>
-                            `;
-                            
-                            neoList.appendChild(neoDiv);
-                        });
-                    }
-                    
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('content').style.display = 'block';
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar dados da NASA: ', error);
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('error').style.display = 'block';
-                });
-        }
-
-        fetchNEOs();
-    </script>
+                    });
+            }
+    
+            fetchNEOs();
+        </script>
 
         
     </main>

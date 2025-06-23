@@ -60,39 +60,48 @@
             <h2>Fotos de Marte!</h2>
         </div>
 
-         <script>
-        function fetchMarsPhotos(){
-            let container = document.querySelector('#mars-container');
-            fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=L0OElV1qVe98loQk5rOiVME8pUYVrmzYedoZZznC')
-            .then(resp => resp.json())
-            .then(data => {
-                if(data.photos && data.photos.length > 0) {
-                    let marsPhotosContainer = document.getElementById('mars-photos');
-                    data.photos.forEach(photo => {
-                        let image = document.createElement('img');
-                        image.setAttribute('src', photo.img_src);
-                        image.setAttribute('alt', 'Foto de Marte');
-                        image.setAttribute('id', 'mars-image');
-                        marsPhotosContainer.appendChild(image);
-                    });
-
-                    let content = document.getElementById('content');
-                    content.style.display = 'block';
-                    document.getElementById('loading').style.display = 'none'; 
-                } else {
-                    let errorDiv = document.getElementById('error');
-                    errorDiv.style.display = 'block';
-                    errorDiv.innerText = 'Não há fotos disponíveis para este Sol.';
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao buscar dados de Marte: ', error);
-                container.innerHTML += '<p>Não foi possível carregar as fotos de Marte. Tente novamente mais tarde.</p>';
-            });
-        }
-
-        fetchMarsPhotos();
-    </script>
+        <div id="mars-container">
+            <div id="loading" class="loading">Carregando...</div>
+            <div id="content" style="display: none;">
+                <h2 id="title">Fotos do Sol 1000</h2>
+                <div id="mars-photos"></div>
+            </div>
+            <div id="error" class="error" style="display: none;"></div>
+        </div>
+    
+        <script>
+            function fetchMarsPhotos(){
+                let container = document.querySelector('#mars-container');
+                fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=ZOdBcsiKYAOa0Eb0wCBgKEejcj4bVmh34IoD46zg')
+                .then(resp => resp.json())
+                .then(data => {
+                    if(data.photos && data.photos.length > 0) {
+                        let marsPhotosContainer = document.getElementById('mars-photos');
+                        data.photos.forEach(photo => {
+                            let image = document.createElement('img');
+                            image.setAttribute('src', photo.img_src);
+                            image.setAttribute('alt', 'Foto de Marte');
+                            image.setAttribute('id', 'mars-image');
+                            marsPhotosContainer.appendChild(image);
+                        });
+    
+                        let content = document.getElementById('content');
+                        content.style.display = 'block';
+                        document.getElementById('loading').style.display = 'none'; 
+                    } else {
+                        let errorDiv = document.getElementById('error');
+                        errorDiv.style.display = 'block';
+                        errorDiv.innerText = 'Não há fotos disponíveis para este Sol.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados de Marte: ', error);
+                    container.innerHTML += '<p>Não foi possível carregar as fotos de Marte. Tente novamente mais tarde.</p>';
+                });
+            }
+    
+            fetchMarsPhotos();
+        </script>
 
         
     </main>
