@@ -1,0 +1,87 @@
+<script>
+
+    class Veiculo {
+        constructor(marca, modelo) {
+            this.marca = marca;
+            this.modelo = modelo;
+        }
+
+        acelerar(){
+            console.log(`${this.modelo} acelerou!!!`)
+        }
+
+        frear(){
+            console.log(`${this.modelo} freou!!!`)
+        }
+    }
+
+    let veiculo_1 = new Veiculo('Fiat','Uno 1994');
+    console.log(`Seu veiculo é ${veiculo_1.modelo}`);
+
+    veiculo_1.acelerar();
+    veiculo_1.frear();
+
+    class Pessoa {
+        constructor(nome, cpf, idade, telefone){
+            this.nome = nome;
+            this.cpf = cpf;
+            this.idade = idade;
+            this.telefone = telefone;
+        }
+
+        correr(){
+            console.log('A pessoa correu!!!');
+        }
+
+        pular(){
+            console.log('A pessoa pulou!!!');
+        }
+
+        falar(){
+            console.log(`${this.nome}: Olá, como vai?`);
+        }
+
+    }
+
+    let pessoa = new Pessoa('Gonzalo Tapia', '666', '23', '99660-6060');
+    pessoa.correr();
+    pessoa.pular();
+    pessoa.falar();
+
+    class Animal {
+        constructor(nome, especie, idade, porte){
+            this.nome = nome;
+            this.especie = especie;
+            this.idade = idade;
+            this.porte = porte;
+        }
+
+        correr(){
+            console.log('O animal correu!!!')
+        }
+
+        atacar(){
+            console.log('O animal atacou!!!')
+        }
+
+        grunhir(){
+            console.log(`${this.nome} grunhiu!!!`)
+        }
+    }
+
+    class Cachorro extends Animal {
+        constructor(nome, especie, idade, porte, altura){
+            super(nome, especie, idade, porte);
+            this.altura = altura;
+        }
+    }
+
+    let animal_1 = new Animal('Luke', 'Doberman', '7', 'Médio');
+
+    console.log(animal_1);
+
+    animal_1.correr();
+    animal_1.atacar();
+    animal_1.grunhir();
+
+</script>
