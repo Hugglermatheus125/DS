@@ -1,0 +1,61 @@
+<script>
+    class Pessoa {
+        constructor(nome, idade, cpf){
+            this.nome = nome;
+            this.idade = idade;
+            this.cpf = cpf;
+        }
+
+        falar(){
+            console.log('Olá!');
+        }
+
+        andar(){
+            console.log('A pessoa andou!')
+        }
+    }
+
+    let professor = new Pessoa('Carlitos', '20', '123');
+
+    let aluno = new Pessoa('Hepa', '16', '555');
+
+    // ==============================================
+
+    class User {
+
+        //no constructor esta ocorrendo o encapsulamento, ou seja
+        //os dados estão sendo agrupados dentro da classe (capsula)
+
+        constructor(email, senha, status, tipo) {
+            this.email = email;
+            this.idade = idade;
+            this.status = status;
+            this.tipo = tipo;
+        }
+
+        //aqui esta ocorrendo o polimorfismo, ou seja
+        //a classe pode conter comportamentos como conectar, desconectar etc...
+
+        conectar(){
+            console.log('Placeholder');
+        }
+        desconectar(){
+            console.log('Placeholder');
+        }
+
+        recuperarSenha(){
+            console.log('Placeholder');
+        }
+
+        trocarSenha(){
+            console.log('Placeholder');
+        }
+
+        desativarConta(){
+            console.log('Placeholder');
+        }
+    }
+
+    let usuario1 = new User('Mates', '123123', 'online', 'online')
+
+</script>
