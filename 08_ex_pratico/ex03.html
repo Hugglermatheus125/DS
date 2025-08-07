@@ -1,10 +1,8 @@
-<!-- Crie uma classe `ContaBancaria` com as seguintes características:
+<!-- Crie uma classe `ContaPoupanca` que herda da classe `ContaBancaria` do exercício anterior, com as seguintes características adicionais:
 
-- Propriedades: titular, saldo e numeroConta
-- Construtor que inicializa esses valores (com saldo inicial opcional)
-- Métodos getters para todas as propriedades
-- Métodos `depositar(valor)` e `sacar(valor)` que alteram o saldo
-- Método `exibirSaldo()` que mostra o saldo atual -->
+- Uma propriedade privada `taxaDeJuros`
+- Construtor que inicializa todos os valores (incluindo os herdados)
+- Um método `aplicarJuros() -->
 
 <script>
     class ContaBancaria {
@@ -57,11 +55,13 @@
             }
     }
 
-    let conta = new ContaBancaria('robinho', 1000, 123123);
-    
-    conta.saldoConta();
-    conta.depositarConta(1000);
-    conta.saldoConta();
-    conta.sacarConta(2000);
-    conta.saldoConta();
+    class ContaPoupanca extends ContaBancaria {
+        constructor(titular, saldo, numeroConta, taxaJuros){
+            super(titular, saldo, numeroConta);
+            this.taxaJuros = taxaJuros;
+        }
+
+        aplicarJuros()
+
+    }
 </script>
