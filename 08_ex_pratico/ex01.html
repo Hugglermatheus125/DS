@@ -1,0 +1,56 @@
+<!-- ## Exercício 1: Classe Pessoa
+
+Crie uma classe chamada `Pessoa` com as seguintes características:
+
+- Propriedades: nome, idade e profissão
+- Construtor que inicializa esses valores
+- Métodos getters e setters para cada propriedade
+- Um método `apresentar()` que retorna uma string com os dados da pessoa -->
+
+<script>
+
+    class Pessoa {
+        constructor(nome, idade, profissao) {
+            this.nome = nome;
+            this.idade = idade;
+            this.profissao = profissao;
+        }
+
+        set nomePessoa(nome){
+            this.nome = nome;
+        }
+
+        get nomePessoa(){
+            return this.nome;
+        }
+
+        set idadePessoa(idade){
+            this.idade = idade;
+        }
+
+        get idadePessoa(){
+            return this.idade;
+        }
+
+        set profissaoPessoa(profissao){
+            this.profissao = profissao;
+        }
+
+        get profissaoPessoa(){
+            return this.profissao;
+        }
+
+        apresentar(nome, idade, profissao){
+            console.log(`= Apresentação =`);
+            console.log(`Nome: ${this.nome}`);
+            console.log(`Idade: ${this.idade}`);
+            console.log(`Profissão: ${this.profissao}`);
+        }
+    }
+
+    let pessoa1 = new Pessoa('Luciano', 32, 'Ídolo de SP');
+    pessoa1.apresentar();
+
+    
+
+</script>
