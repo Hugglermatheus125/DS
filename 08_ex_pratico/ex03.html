@@ -5,63 +5,14 @@
 - Um método `aplicarJuros() -->
 
 <script>
-    class ContaBancaria {
-        constructor(titular, saldo, numeroConta) {
-            this.titular = titular;
-            this.saldo = saldo;
-            this.numeroConta = numeroConta;
-        }
 
-        set contaTitular(titular){
-                this.titular = titular;
-            }
-
-            get contaTitular(){
-                return this.titular;
-            }
-
-            set contaSaldo(saldo){
-                this.saldo = saldo;
-            }
-
-            get contaSaldo(){
-                return this.saldo;
-            }
-
-            set contaNumero(numeroConta){
-                this.numeroConta = numeroConta;
-            }
-
-            get contaNumero(){
-                return this.numeroConta;
-            }
-
-            depositarConta(valor){
-                this.saldo = this.saldo + valor;
-                console.log(`Você depositou ${valor} reais!`);
-            }
-
-            sacarConta(valor){
-                if(this.saldo - valor < 0){
-                    console.log('Você não tem essa quantia de dinheiro para sacar!')
-                }else{
-                    this.saldo = this.saldo - valor;
-                    console.log(`Você sacou ${valor} reais!`);
-                }
-            }
-
-            saldoConta(){
-                console.log(`Seu saldo é de ${this.saldo} reais!`)
-            }
+    class Fisica{
+        
     }
 
-    class ContaPoupanca extends ContaBancaria {
-        constructor(titular, saldo, numeroConta, taxaJuros){
-            super(titular, saldo, numeroConta);
-            this.taxaJuros = taxaJuros;
-        }
-
-        aplicarJuros()
+    class Juridico{
 
     }
+    
+
 </script>
